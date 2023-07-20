@@ -1,0 +1,43 @@
+.display_container
+{
+
+padding: 20px 30px;
+}
+
+.display_header
+{
+font-size: 24px;  
+font-weight: 700;  
+color: var(--primary-text-color);
+
+}
+.form_container
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0;
+    
+}
+.input_container
+{
+color: var(--primary-muted-color);
+display: flex;
+flex-direction: column;
+margin: 5px 0;
+gap: 10px   ;
+}
+.input_container input,.input_container textarea
+
+{
+    background-color: var(--primary-color);
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+}
+
+.input_container textarea
+{
+    min-width: 100%;
+}
