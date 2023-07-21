@@ -25,6 +25,7 @@ const toggleContent = [
   {data:'Skills', 
   icon: faScrewdriverWrench,
   form_element : {'Full Name' : 'text' , 'Email' : 'email' , 'Phone Number' : 'number' , 'Address' :'text'}
+
 },
 
   
@@ -36,15 +37,45 @@ const toggleContent = [
 ];
 
 
-
-
-
 function App() {
   const [selectedBtn, setSelectedBtn] = useState('Personal Details');
+
+const [personalDetails,setPersonalDetails] = useState({
+  data : 'Personal Details',
+  'Full Name' : '',
+  'Email' : '',
+  'Phone Number' : '',
+  'Address': ''
+})
+
+const [education,setEducation] = useState({
+  data : 'Education',
+  'School' : '',
+  'Degree' : '',
+  'Start Date' : '',
+  'End Date' : '',
+  'Location' : ''
+})
+
+const [experiences,setExperiences] = useState({
+  data : 'Experiences',
+  'Company Name' : '',
+  'Position Title' : '',
+  'Start Date' : '',
+  'End Date' : '',
+  'Location' : '',
+  'Description' : ''
+})
+
+
   return (
     <div className='container'>
       <ToggleGroup selectedBtn = {selectedBtn} setSelectedBtn ={setSelectedBtn} toggleContent={toggleContent}/>
-      <FormShow selectedBtn = {selectedBtn} toggleContent={toggleContent}/>
+      <FormShow selectedBtn = {selectedBtn} toggleContent={toggleContent} 
+      personalDetails = {personalDetails} setPersonalDetails = {setPersonalDetails}
+      education = {education} setEducation = {setEducation}
+      experiences = {experiences} setExperiences = {setExperiences}
+      />
     </div>
   )
 }
