@@ -1,25 +1,12 @@
-.display_container
-{
-
-padding: 20px 30px;
-}
-
-.display_header
-{
-font-size: 24px;  
-font-weight: 700;  
-color: var(--primary-text-color);
-
-}
 .form_container
 {
-    width: 100%;
+
     display: flex;
     flex-direction: column;
     margin: 10px 0;
     
 }
-.input_container
+.form_element
 {
 color: var(--primary-muted-color);
 display: flex;
@@ -27,7 +14,7 @@ flex-direction: column;
 margin: 5px 0;
 gap: 10px   ;
 }
-.input_container input,.input_container textarea
+.form_element input,.form_element button
 
 {
     background-color: var(--primary-color);
@@ -37,7 +24,42 @@ gap: 10px   ;
     border-radius: 5px;
 }
 
-.input_container textarea
+.form_element textarea
 {
     min-width: 100%;
+}
+
+.form_element button
+{
+width: 100px;
+cursor: pointer;
+background-color: var(--primary-bright-color);
+color: #fff;
+}
+
+.expandable_container
+{
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #fafafa;
+    
+
+    width: 100%;
+}
+.expandable_header
+{   
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+.expandable_title
+{
+    font-weight: 600;
+}
+.expandable_buttons
+{
+    display: flex;
+    flex-direction: row;
 }

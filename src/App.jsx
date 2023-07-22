@@ -1,45 +1,36 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser, faBuildingColumns, faHandshake, faScrewdriverWrench} from '@fortawesome/free-solid-svg-icons'; 
+import { faUser, faBuildingColumns, faHandshake} from '@fortawesome/free-solid-svg-icons'; 
 import { useState } from 'react'
 import './App.css'
-
+import './styles/formstyle.css'
 
 import ToggleGroup from './components/toggle/ToggleGroup';
-import FormShow from './components/toggle/FormShow';
+import PersonalDetails from './components/main/PersonalDetails';
+import Education from './components/main/Education';
+import Experiences from './components/main/Experience';
 
 
 const toggleContent = [
-    
+
   {
   data:'Personal Details', 
   icon: faUser,
-  form_element : {'Full Name' : 'text' , 'Email' : 'email' , 'Phone Number' : 'number' , 'Address' :'text'}
 
 },
   
   {data:'Education', 
   icon: faBuildingColumns,
-  form_element : {'School' : 'text' , 'Degree' : 'text' , 'Start Date' : 'date' , 'End Date' :'date', 'Location' : 'text' }
 },
   
-  {data:'Skills', 
-  icon: faScrewdriverWrench,
-  form_element : {'Full Name' : 'text' , 'Email' : 'email' , 'Phone Number' : 'number' , 'Address' :'text'}
-
-},
-
   
   {data:'Experiences', 
   icon: faHandshake,
-  form_element : {'Company Name' : 'text' , 'Position Title' : 'text' , 'Start Date' : 'date' , 'End Date' :'date', 'Location' : 'text', 'Description' : 'textarea'}
 }
 
 ];
 
-
 function App() {
-  const [selectedBtn, setSelectedBtn] = useState('Personal Details');
-
+const [selectedBtn, setSelectedBtn] = useState('Education');
 const [personalDetails,setPersonalDetails] = useState({
   data : 'Personal Details',
   'Full Name' : '',
@@ -47,35 +38,37 @@ const [personalDetails,setPersonalDetails] = useState({
   'Phone Number' : '',
   'Address': ''
 })
+const [education, setEducation] = useState([]);
+const [experiences, setExperiences] = useState([]);
+const [entryedu,setEntryEdu] = useState(true);
 
-const [education,setEducation] = useState({
-  data : 'Education',
-  'School' : '',
-  'Degree' : '',
-  'Start Date' : '',
-  'End Date' : '',
-  'Location' : ''
-})
 
-const [experiences,setExperiences] = useState({
-  data : 'Experiences',
-  'Company Name' : '',
-  'Position Title' : '',
-  'Start Date' : '',
-  'End Date' : '',
-  'Location' : '',
-  'Description' : ''
-})
 
+function displayForm()
+{
+if (selectedBtn == "Personal Details")
+{
+return  <PersonalDetails personalDetails = {personalDetails} setPersonalDetails ={setPersonalDetails} />
+}
+else if (selectedBtn == "Education")
+{
+return <Education education={education} setEducation = {setEducation} entry={entryedu} setEntry={setEntryEdu}/>
+}
+else if (selectedBtn == 'Experiences')
+{
+return <Experiences experiences ={experiences} setExperiences={setExperiences}/>
+}
+
+}
 
   return (
     <div className='container'>
       <ToggleGroup selectedBtn = {selectedBtn} setSelectedBtn ={setSelectedBtn} toggleContent={toggleContent}/>
-      <FormShow selectedBtn = {selectedBtn} toggleContent={toggleContent} 
-      personalDetails = {personalDetails} setPersonalDetails = {setPersonalDetails}
-      education = {education} setEducation = {setEducation}
-      experiences = {experiences} setExperiences = {setExperiences}
-      />
+      <div className='maincontent'>
+        <p className='mainText'>{selectedBtn}</p>
+        {displayForm()}
+      </div>
+    
     </div>
   )
 }
