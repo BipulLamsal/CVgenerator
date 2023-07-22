@@ -43,12 +43,29 @@ const handleOnSave = (event) =>
         );
       });
     
+
+}
+
+
+const handleOnEdit = (event) =>
+{
+
+    event.preventDefault()
+
+    education.map((entry,index) =>{
+        if (formindex == index )
+        {
+            setExpand(true)
+        }
+    })
 }
 
 function release()
 {   
+    
 
-    if (expand) 
+
+    if (expand ) 
     {   
         
         return(
@@ -93,7 +110,7 @@ return <div className="expandable_container">
 <div className="expandable_header">
 <p className="expandable_title">{education[formindex]['School']}</p>
 <div className="form_element expandable_buttons">
-<button onClick={()=> setExpand(true)}>Edit</button>
+<button onClick={handleOnEdit}>Edit</button>
 <button onClick={handleOnDelete}>Delete</button>
 </div>
 

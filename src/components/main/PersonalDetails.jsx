@@ -1,15 +1,16 @@
 import InputComponent from "../InputComponent"
 
-function PersonalDetails()
+function PersonalDetails({personalDetails,setPersonalDetails})
 {
 
     return(
         <form className="form_container">  
-            <InputComponent label= "Full Name" type= "text"> </InputComponent>
-            <InputComponent label= "Degree" type= "text"> </InputComponent>
-            <InputComponent label= "Start Date" type= "date"> </InputComponent>
-            <InputComponent label= "End Date" type= "date"> </InputComponent>
-            <InputComponent label= "Address" type= "text"> </InputComponent>
+            <InputComponent label= "Full Name" type= "text" detail ={personalDetails} setDetail ={setPersonalDetails}> </InputComponent>
+            <InputComponent label= "Email" type= "text" detail ={personalDetails} setDetail ={setPersonalDetails}> </InputComponent>
+            <InputComponent label= "Phone Number" type= "text" detail ={personalDetails} setDetail ={setPersonalDetails}> </InputComponent>
+            <InputComponent label= "Address" type= "text" detail ={personalDetails} setDetail ={setPersonalDetails}> </InputComponent>
+            <InputComponent label= "LinkedIn/Twitter" type= "text"detail ={personalDetails} setDetail ={setPersonalDetails}> </InputComponent>
+
         </form>
     )
 

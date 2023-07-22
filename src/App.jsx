@@ -6,8 +6,8 @@ import './styles/formstyle.css'
 
 import ToggleGroup from './components/toggle/ToggleGroup';
 import PersonalDetails from './components/main/PersonalDetails';
-import Education from './components/main/Education';
-import Experiences from './components/main/Experience';
+import Education from './components/main/EducationComponent/Education';
+import Experience from './components/main/ExperienceComponent/Experience';
 
 
 const toggleContent = [
@@ -30,17 +30,13 @@ const toggleContent = [
 ];
 
 function App() {
-const [selectedBtn, setSelectedBtn] = useState('Education');
-const [personalDetails,setPersonalDetails] = useState({
-  data : 'Personal Details',
-  'Full Name' : '',
-  'Email' : '',
-  'Phone Number' : '',
-  'Address': ''
-})
+const [selectedBtn, setSelectedBtn] = useState('Personal Details');
+const [personalDetails,setPersonalDetails] = useState({})
+
 const [education, setEducation] = useState([]);
-const [experiences, setExperiences] = useState([]);
+const [experience, setExperience] = useState([]);
 const [entryedu,setEntryEdu] = useState(true);
+const [entryexp,setEntryExp] = useState(true)
 
 
 
@@ -56,7 +52,7 @@ return <Education education={education} setEducation = {setEducation} entry={ent
 }
 else if (selectedBtn == 'Experiences')
 {
-return <Experiences experiences ={experiences} setExperiences={setExperiences}/>
+return <Experience experience ={experience} setExperience={setExperience} entry={entryexp} setEntry={setEntryExp}/>
 }
 
 }

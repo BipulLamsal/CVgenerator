@@ -14,7 +14,7 @@ flex-direction: column;
 margin: 5px 0;
 gap: 10px   ;
 }
-.form_element input,.form_element button
+.form_element input,.form_element button,.form_element textarea
 
 {
     background-color: var(--primary-color);
@@ -27,6 +27,7 @@ gap: 10px   ;
 .form_element textarea
 {
     min-width: 100%;
+    max-width: 100%;
 }
 
 .form_element button
@@ -52,7 +53,6 @@ color: #fff;
     display: flex;
     justify-content: space-between;
     align-items: center;
-
 }
 .expandable_title
 {
