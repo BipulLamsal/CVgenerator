@@ -1,4 +1,4 @@
-# Project Title
+# Project : CV Generator
 
 CV Generator - Part of The Odin Project React Curriculum
 
